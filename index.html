@@ -39,7 +39,7 @@
           <span class="bubble b4"></span>
         </div>
         <div>
-          <h1>Welcome to ReproWise 💙</h1>
+          <h1>Welcome to ReproWise</h1>
           <p class="welcome-subtitle">
             A warm, welcoming space for teens and young adults to learn, practice,
             and get support. No judgment, just facts.
@@ -48,17 +48,17 @@
             <article>
               <h4>Bite-sized lessons</h4>
               <p>2-minute explainers in everyday language.</p>
-              <button class="topic-jump" data-open-lesson="0">Open menstruation guide</button>
+              <button class="topic-jump" data-open-topic="0" data-open-level="0">Open menstruation guide</button>
             </article>
             <article>
               <h4>Quick practice</h4>
               <p>Four-option quizzes with explanations for each answer.</p>
-              <button class="topic-jump" data-open-lesson="1">Open contraception guide</button>
+              <button class="topic-jump" data-open-topic="1" data-open-level="0">Open contraception guide</button>
             </article>
             <article>
               <h4>Private + supportive</h4>
               <p>Learn as guest or compete with friends.</p>
-              <button class="topic-jump" data-open-lesson="2">Open consent guide</button>
+              <button class="topic-jump" data-open-topic="2" data-open-level="0">Open consent guide</button>
             </article>
           </div>
           <div class="share-link-wrap">
@@ -70,21 +70,25 @@
           </div>
         </div>
         <aside class="streak-card mascot-card">
-          <h3>🔥 Day Streak</h3>
+          <h3>Day Streak</h3>
           <p id="streak-count">0 days</p>
-          <div id="mascot-face" class="mascot-face" aria-label="mascot">🙂</div>
-          <small id="mascot-mood">Your buddy is cheering you on.</small>
+          <div id="mascot-face" class="mascot-face mood-calm" aria-label="ReproWise mascot">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="mouth"></span>
+          </div>
+          <small id="mascot-mood">Your mascot is cheering you on.</small>
         </aside>
       </section>
 
-      <section id="learn" class="app-section section-split">
-        <div>
+      <section id="learn" class="app-section learn-layout">
+        <div class="learn-left">
           <h2>Learning made easy</h2>
           <p>
-            Level-based path: topics get harder as you progress. Click a topic to
-            open expanded info and a trusted read-more source.
+            Each topic has its own Level 1–7 progression. Level 1 is beginner and
+            Level 7 is advanced.
           </p>
-          <ul id="lesson-list" class="lesson-list"></ul>
+          <div id="topic-tracks" class="topic-tracks"></div>
         </div>
         <article id="lesson-view" class="soft-card lesson-view"></article>
       </section>
@@ -102,23 +106,16 @@
           <span id="current-tier-label">Level: Easy</span>
         </div>
 
-        <div class="quiz-layout">
-          <article class="soft-card quiz-card">
-            <div class="quiz-topline">
-              <span id="question-progress">Question 1 / 3</span>
-              <span id="score-pill">Score: 0</span>
-            </div>
-            <h3 id="question-text"></h3>
-            <div id="options" class="options"></div>
-            <p id="feedback" class="feedback"></p>
-            <button id="next-btn" class="btn btn-solid" disabled>Next</button>
-          </article>
-
-          <aside class="soft-card leaderboard">
-            <h3>Rankings</h3>
-            <ol id="leaderboard"></ol>
-          </aside>
-        </div>
+        <article class="soft-card quiz-card solo">
+          <div class="quiz-topline">
+            <span id="question-progress">Question 1 / 3</span>
+            <span id="score-pill">Score: 0</span>
+          </div>
+          <h3 id="question-text"></h3>
+          <div id="options" class="options"></div>
+          <p id="feedback" class="feedback"></p>
+          <button id="next-btn" class="btn btn-solid" disabled>Next</button>
+        </article>
       </section>
 
       <section id="support" class="app-section support-section">
