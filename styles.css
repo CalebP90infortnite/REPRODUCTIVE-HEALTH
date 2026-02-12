@@ -121,6 +121,39 @@ main { padding: 2rem 8vw; display: grid; gap: 2rem; }
 }
 .hero-intro-cards h4, .hero-intro-cards p { margin: 0; }
 
+
+.topic-jump {
+  margin-top: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.lesson-view h3 {
+  margin-top: 0;
+}
+
+.lesson-points {
+  padding-left: 1.1rem;
+  margin: 0.8rem 0;
+}
+
+.lesson-points li {
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.trusted-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  color: #3e4fcc;
+  font-weight: 700;
+}
+
 .btn {
   border-radius: 999px;
   padding: 0.75rem 1.2rem;

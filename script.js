@@ -1,31 +1,73 @@
 const lessons = [
   {
     title: "Understanding menstruation",
-    body: "Periods are the shedding of the uterine lining. Cycle length can vary from person to person and may change with stress, sleep, and health conditions."
+    body: "Periods are the shedding of the uterine lining. Cycle length can vary from person to person and may change with stress, sleep, and health conditions.",
+    points: [
+      "A cycle can be regular or irregular, especially in teen years.",
+      "Common symptoms include cramps, breast tenderness, mood changes, and acne.",
+      "Seek care if bleeding is very heavy, very painful, or absent for months."
+    ],
+    link: "https://www.who.int/news-room/fact-sheets/detail/adolescent-health"
   },
   {
     title: "Contraception basics",
-    body: "Birth control options include condoms, pills, IUDs, implants, and more. Condoms are the only option that also helps lower STI risk."
+    body: "Birth control options include condoms, pills, IUDs, implants, and more. Condoms are the only option that also helps lower STI risk.",
+    points: [
+      "Condoms help with STI prevention and pregnancy prevention.",
+      "Methods like pills, implants, and IUDs differ in duration and side effects.",
+      "Emergency contraception works best as soon as possible after unprotected sex."
+    ],
+    link: "https://www.plannedparenthood.org/learn/birth-control"
   },
   {
     title: "Consent & healthy relationships",
-    body: "Consent should be freely given, informed, enthusiastic, and reversible. Healthy relationships include communication, respect, and boundaries."
+    body: "Consent should be freely given, informed, enthusiastic, and reversible. Healthy relationships include communication, respect, and boundaries.",
+    points: [
+      "Consent is needed every time, even in long-term relationships.",
+      "Pressure, fear, or guilt are not consent.",
+      "Healthy partners respect boundaries and communicate clearly."
+    ],
+    link: "https://www.rainn.org/articles/what-is-consent"
   },
   {
     title: "Male puberty and hormones",
-    body: "Voice changes, body hair, acne, erections, wet dreams, and mood changes can all be normal during male puberty."
+    body: "Voice changes, body hair, acne, erections, wet dreams, and mood changes can all be normal during male puberty.",
+    points: [
+      "Puberty timing differs from person to person.",
+      "Hygiene, sleep, and emotional support help during body changes.",
+      "Talk to a clinician if puberty changes are very delayed or very early."
+    ],
+    link: "https://kidshealth.org/en/teens/male-repro.html"
   },
   {
     title: "Testicular and prostate awareness",
-    body: "Self-awareness of testicular changes (pain, swelling, lumps) and early medical advice when symptoms appear helps protect long-term health."
+    body: "Self-awareness of testicular changes (pain, swelling, lumps) and early medical advice when symptoms appear helps protect long-term health.",
+    points: [
+      "Do a quick monthly check for unusual lumps or swelling.",
+      "Persistent pain should be evaluated quickly.",
+      "Early checkups improve outcomes for many conditions."
+    ],
+    link: "https://www.cancer.org/cancer/testicular-cancer/detection-diagnosis-staging/detection.html"
   },
   {
     title: "STI prevention & testing",
-    body: "Many STIs can have no symptoms in any gender. Routine testing, condom/barrier use, and open communication help keep everyone safer."
+    body: "Many STIs can have no symptoms in any gender. Routine testing, condom/barrier use, and open communication help keep everyone safer.",
+    points: [
+      "Testing frequency depends on activity and risk factors.",
+      "No symptoms does not always mean no infection.",
+      "Discuss testing and protection plans with partners."
+    ],
+    link: "https://www.cdc.gov/sti/about/index.html"
   },
   {
     title: "Fertility and sperm health",
-    body: "Sperm quality can be affected by heat, smoking, alcohol, infections, and stress. Healthy habits support reproductive health."
+    body: "Sperm quality can be affected by heat, smoking, alcohol, infections, and stress. Healthy habits support reproductive health.",
+    points: [
+      "Balanced nutrition, sleep, and exercise support fertility.",
+      "Smoking, high alcohol use, and drug misuse can reduce sperm quality.",
+      "Seek medical advice if trying to conceive without success over time."
+    ],
+    link: "https://www.nhs.uk/pregnancy/trying-for-a-baby/male-fertility/"
   }
 ];
 
@@ -207,6 +249,17 @@ function attachMenuNavigation() {
   });
 }
 
+
+function attachTopicRedirects() {
+  document.querySelectorAll(".topic-jump").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lessonIndex = Number(btn.dataset.openLesson || 0);
+      setActiveMenu("learn");
+      selectLesson(lessonIndex);
+    });
+  });
+}
+
 function renderLessons() {
   lessonList.innerHTML = "";
   lessons.forEach((lesson, i) => {
@@ -221,7 +274,14 @@ function renderLessons() {
 }
 
 function selectLesson(i) {
-  lessonView.innerHTML = `<h3>${lessons[i].title}</h3><p>${lessons[i].body}</p>`;
+  const lesson = lessons[i];
+  const points = lesson.points.map((point) => `<li>${point}</li>`).join("");
+  lessonView.innerHTML = `
+    <h3>${lesson.title}</h3>
+    <p>${lesson.body}</p>
+    <ul class="lesson-points">${points}</ul>
+    <a class="trusted-link" href="${lesson.link}" target="_blank" rel="noopener noreferrer">Read expanded guide ↗</a>
+  `;
   document.querySelectorAll(".lesson-list button").forEach((btn, idx) => {
     btn.classList.toggle("active", idx === i);
   });
@@ -501,6 +561,7 @@ window.addEventListener("load", () => {
 
 attachMenuNavigation();
 renderLessons();
+attachTopicRedirects();
 attachTierPicker();
 attachSignIn();
 attachHospitalSearch();
