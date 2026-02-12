@@ -1,73 +1,122 @@
 const lessons = [
   {
     title: "Understanding menstruation",
+    difficulty: "Level 1 · Starter",
     body: "Periods are the shedding of the uterine lining. Cycle length can vary from person to person and may change with stress, sleep, and health conditions.",
     points: [
       "A cycle can be regular or irregular, especially in teen years.",
-      "Common symptoms include cramps, breast tenderness, mood changes, and acne.",
+      "Common symptoms include cramps, mood changes, and bloating.",
       "Seek care if bleeding is very heavy, very painful, or absent for months."
     ],
-    link: "https://www.who.int/news-room/fact-sheets/detail/adolescent-health"
+    link: "https://www.who.int/news-room/fact-sheets/detail/adolescent-health",
+    quiz: {
+      prompt: "Which statement is true about menstrual cycles?",
+      options: ["They are always exactly 28 days", "They can vary person to person", "They happen only with stress", "They stop forever after one missed cycle"],
+      correct: 1,
+      explain: "Correct. Cycle length can vary between individuals and over time."
+    }
   },
   {
     title: "Contraception basics",
+    difficulty: "Level 2 · Foundations",
     body: "Birth control options include condoms, pills, IUDs, implants, and more. Condoms are the only option that also helps lower STI risk.",
     points: [
       "Condoms help with STI prevention and pregnancy prevention.",
       "Methods like pills, implants, and IUDs differ in duration and side effects.",
       "Emergency contraception works best as soon as possible after unprotected sex."
     ],
-    link: "https://www.plannedparenthood.org/learn/birth-control"
+    link: "https://www.plannedparenthood.org/learn/birth-control",
+    quiz: {
+      prompt: "Which birth control method also helps reduce STI transmission?",
+      options: ["Condoms", "Pills", "Implant", "Calendar tracking"],
+      correct: 0,
+      explain: "Condoms create a barrier that lowers STI risk in addition to helping prevent pregnancy."
+    }
   },
   {
     title: "Consent & healthy relationships",
+    difficulty: "Level 3 · Confidence",
     body: "Consent should be freely given, informed, enthusiastic, and reversible. Healthy relationships include communication, respect, and boundaries.",
     points: [
       "Consent is needed every time, even in long-term relationships.",
       "Pressure, fear, or guilt are not consent.",
       "Healthy partners respect boundaries and communicate clearly."
     ],
-    link: "https://www.rainn.org/articles/what-is-consent"
+    link: "https://www.rainn.org/articles/what-is-consent",
+    quiz: {
+      prompt: "What does healthy consent include?",
+      options: ["Assumptions", "Silence", "Freely given and reversible agreement", "Only one-time permission"],
+      correct: 2,
+      explain: "Consent must be freely given and can be changed at any time."
+    }
   },
   {
     title: "Male puberty and hormones",
+    difficulty: "Level 4 · Growth",
     body: "Voice changes, body hair, acne, erections, wet dreams, and mood changes can all be normal during male puberty.",
     points: [
       "Puberty timing differs from person to person.",
       "Hygiene, sleep, and emotional support help during body changes.",
       "Talk to a clinician if puberty changes are very delayed or very early."
     ],
-    link: "https://kidshealth.org/en/teens/male-repro.html"
+    link: "https://kidshealth.org/en/teens/male-repro.html",
+    quiz: {
+      prompt: "Which can be a normal change in male puberty?",
+      options: ["Voice deepening", "No body changes", "Permanent severe pain", "Zero mood shifts ever"],
+      correct: 0,
+      explain: "Voice deepening is common during male puberty due to hormonal changes."
+    }
   },
   {
     title: "Testicular and prostate awareness",
+    difficulty: "Level 5 · Advanced",
     body: "Self-awareness of testicular changes (pain, swelling, lumps) and early medical advice when symptoms appear helps protect long-term health.",
     points: [
       "Do a quick monthly check for unusual lumps or swelling.",
       "Persistent pain should be evaluated quickly.",
       "Early checkups improve outcomes for many conditions."
     ],
-    link: "https://www.cancer.org/cancer/testicular-cancer/detection-diagnosis-staging/detection.html"
+    link: "https://www.cancer.org/cancer/testicular-cancer/detection-diagnosis-staging/detection.html",
+    quiz: {
+      prompt: "A new painless testicular lump should be:",
+      options: ["Ignored", "Shared online only", "Checked by a clinician", "Treated at home without advice"],
+      correct: 2,
+      explain: "A clinician should evaluate new lumps promptly for accurate diagnosis and early treatment if needed."
+    }
   },
   {
     title: "STI prevention & testing",
+    difficulty: "Level 6 · Expert",
     body: "Many STIs can have no symptoms in any gender. Routine testing, condom/barrier use, and open communication help keep everyone safer.",
     points: [
       "Testing frequency depends on activity and risk factors.",
       "No symptoms does not always mean no infection.",
       "Discuss testing and protection plans with partners."
     ],
-    link: "https://www.cdc.gov/sti/about/index.html"
+    link: "https://www.cdc.gov/sti/about/index.html",
+    quiz: {
+      prompt: "Why is regular STI testing important?",
+      options: ["STIs always show symptoms", "Many STIs can be asymptomatic", "Only one gender gets STIs", "Testing is never useful"],
+      correct: 1,
+      explain: "Many STIs can have no symptoms, so testing helps catch infections early."
+    }
   },
   {
-    title: "Fertility and sperm health",
-    body: "Sperm quality can be affected by heat, smoking, alcohol, infections, and stress. Healthy habits support reproductive health.",
+    title: "Fertility, sperm health & family planning",
+    difficulty: "Level 7 · Mastery",
+    body: "Sperm quality can be affected by heat, smoking, alcohol, infections, and stress. Family planning helps people decide if and when to have children.",
     points: [
       "Balanced nutrition, sleep, and exercise support fertility.",
-      "Smoking, high alcohol use, and drug misuse can reduce sperm quality.",
-      "Seek medical advice if trying to conceive without success over time."
+      "Smoking and high alcohol use can reduce sperm quality.",
+      "Family planning includes timing, spacing, and informed contraception choices."
     ],
-    link: "https://www.nhs.uk/pregnancy/trying-for-a-baby/male-fertility/"
+    link: "https://www.nhs.uk/pregnancy/trying-for-a-baby/male-fertility/",
+    quiz: {
+      prompt: "Family planning helps people to:",
+      options: ["Avoid healthcare", "Decide timing and spacing of children", "Ignore fertility health", "Skip STI prevention"],
+      correct: 1,
+      explain: "Family planning supports informed choices about if and when to have children."
+    }
   }
 ];
 
@@ -90,18 +139,6 @@ const questionBank = {
       options: ["Always 28 days", "Can vary person to person", "Always 21 days", "Never changes"],
       correct: 1,
       explain: "Cycle length differs between people, so variation can still be normal."
-    },
-    {
-      prompt: "Why is regular STI testing useful?",
-      options: ["Many STIs have no symptoms", "Only one gender needs it", "It never helps", "Only adults benefit"],
-      correct: 0,
-      explain: "Testing is useful because some STIs have no visible symptoms."
-    },
-    {
-      prompt: "If a condom breaks, what is a good next step?",
-      options: ["Ignore it", "Talk to a clinic about emergency options and testing", "Wait months", "Only ask friends online"],
-      correct: 1,
-      explain: "A clinic can guide emergency contraception and STI testing based on timing."
     }
   ],
   normal: [
@@ -115,25 +152,13 @@ const questionBank = {
       prompt: "A painless testicular lump should be:",
       options: ["Ignored", "Checked by a healthcare professional", "Treated with social media advice", "Assumed to be harmless always"],
       correct: 1,
-      explain: "A new testicular lump should be checked promptly because early care is important for diagnosis and treatment."
+      explain: "A new testicular lump should be checked promptly because early care matters."
     },
     {
       prompt: "What is true about consent in a relationship?",
       options: ["Consent is permanent", "Consent can change anytime", "Consent is implied by dating", "Consent does not need words"],
       correct: 1,
       explain: "Consent must be ongoing. Being in a relationship never removes the need to ask each time."
-    },
-    {
-      prompt: "Which habit supports sperm health?",
-      options: ["Heavy smoking", "Long-term heat exposure", "Balanced sleep and less smoking/alcohol", "Ignoring infections"],
-      correct: 2,
-      explain: "Healthy sleep and reduced smoking/alcohol can support fertility and sperm quality."
-    },
-    {
-      prompt: "If pregnancy is possible, a healthy first step is:",
-      options: ["Wait 6 months", "Take a test and contact a clinic", "Ignore symptoms", "Only ask social media"],
-      correct: 1,
-      explain: "A pregnancy test gives quick clarity, and clinics can provide confidential options and support."
     }
   ],
   hard: [
@@ -150,22 +175,10 @@ const questionBank = {
       explain: "Smoking and long-term heat exposure can reduce sperm quality and fertility over time."
     },
     {
-      prompt: "Which statement is most inclusive?",
-      options: ["Only one gender needs sexual health info", "People of all genders benefit from inclusive reproductive health education", "STIs only affect some groups", "Consent only matters in long-term relationships"],
+      prompt: "Family planning means:",
+      options: ["Guessing and hoping", "Timing and spacing children with informed choices", "Avoiding all medical advice", "Only one partner decides"],
       correct: 1,
-      explain: "Everyone benefits from inclusive sexual and reproductive health information, regardless of gender."
-    },
-    {
-      prompt: "Why should a persistent scrotal pain be medically checked?",
-      options: ["It is always harmless", "It can signal urgent conditions needing treatment", "Only older adults need care", "Online advice is enough"],
-      correct: 1,
-      explain: "Persistent scrotal pain can indicate infections or torsion and should be assessed quickly."
-    },
-    {
-      prompt: "Best immediate guidance after unprotected sex?",
-      options: ["Do nothing", "Assess emergency contraception timing and STI testing with a clinic", "Wait for months", "Use myths"],
-      correct: 1,
-      explain: "Timing matters for emergency options; a clinic can provide accurate and private guidance."
+      explain: "Family planning involves informed choices about timing and spacing of children."
     }
   ]
 };
@@ -179,15 +192,16 @@ const hospitals = [
 ];
 
 const GOOGLE_CLIENT_ID =
-  window.BLOOM_GOOGLE_CLIENT_ID || "123456789012-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com";
+  window.REPROWISE_GOOGLE_CLIENT_ID || "123456789012-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com";
 
 let activeTier = "easy";
 let currentQuestion = 0;
 let score = 0;
 let locked = false;
-let username = localStorage.getItem("reproluma-user") || "Guest";
-let friends = JSON.parse(localStorage.getItem("reproluma-friends") || "[]");
+let username = localStorage.getItem("reprowise-user") || "Guest";
+let friends = JSON.parse(localStorage.getItem("reprowise-friends") || "[]");
 let roundQuestions = [];
+let lessonProgress = Number(localStorage.getItem("reprowise-lesson-progress") || 0);
 
 const ROUND_SIZE = 3;
 
@@ -204,6 +218,8 @@ const friendRankings = document.getElementById("friend-rankings");
 const streakCount = document.getElementById("streak-count");
 const accountPill = document.getElementById("account-pill");
 const tierLabel = document.getElementById("current-tier-label");
+const mascotFace = document.getElementById("mascot-face");
+const mascotMood = document.getElementById("mascot-mood");
 
 function shuffleArray(list) {
   const arr = [...list];
@@ -214,8 +230,8 @@ function shuffleArray(list) {
   return arr;
 }
 
-function buildRoundQuestions() {
-  const shuffledPool = shuffleArray(questionBank[activeTier]);
+function buildRoundQuestions(sourceQuestions = questionBank[activeTier]) {
+  const shuffledPool = shuffleArray(sourceQuestions);
   const selected = shuffledPool.slice(0, Math.min(ROUND_SIZE, shuffledPool.length));
 
   roundQuestions = selected.map((q) => {
@@ -249,6 +265,69 @@ function attachMenuNavigation() {
   });
 }
 
+function renderLessons() {
+  lessonList.innerHTML = "";
+  lessons.forEach((lesson, i) => {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    const isUnlocked = i <= lessonProgress;
+    button.textContent = `${lesson.difficulty} • ${lesson.title}${isUnlocked ? "" : " 🔒"}`;
+    button.disabled = !isUnlocked;
+    button.addEventListener("click", () => selectLesson(i));
+    li.append(button);
+    lessonList.append(li);
+  });
+  selectLesson(Math.min(lessonProgress, lessons.length - 1));
+}
+
+function unlockLesson(index) {
+  if (index >= lessonProgress && lessonProgress < lessons.length - 1) {
+    lessonProgress = Math.min(index + 1, lessons.length - 1);
+    localStorage.setItem("reprowise-lesson-progress", String(lessonProgress));
+    renderLessons();
+  }
+}
+
+function launchLessonQuiz(index) {
+  const q = lessons[index]?.quiz;
+  if (!q) return;
+  buildRoundQuestions([q]);
+  currentQuestion = 0;
+  score = 0;
+  setActiveMenu("quiz");
+  renderQuestion();
+}
+
+function selectLesson(i) {
+  const lesson = lessons[i];
+  const points = lesson.points.map((point) => `<li>${point}</li>`).join("");
+  lessonView.innerHTML = `
+    <span class="lesson-level">${lesson.difficulty}</span>
+    <h3>${lesson.title}</h3>
+    <p>${lesson.body}</p>
+    <ul class="lesson-points">${points}</ul>
+    <a class="trusted-link" href="${lesson.link}" target="_blank" rel="noopener noreferrer">Read expanded guide ↗</a>
+    <div class="lesson-actions">
+      <button id="lesson-quiz-btn" class="btn btn-solid" type="button">Take lesson quiz</button>
+      <button id="lesson-skip-quiz-btn" class="btn btn-outline" type="button">Skip to quiz mode</button>
+    </div>
+  `;
+
+  document.querySelectorAll(".lesson-list button").forEach((btn, idx) => {
+    btn.classList.toggle("active", idx === i);
+  });
+
+  unlockLesson(i);
+
+  document.getElementById("lesson-quiz-btn")?.addEventListener("click", () => launchLessonQuiz(i));
+  document.getElementById("lesson-skip-quiz-btn")?.addEventListener("click", () => {
+    buildRoundQuestions();
+    currentQuestion = 0;
+    score = 0;
+    setActiveMenu("quiz");
+    renderQuestion();
+  });
+}
 
 function attachTopicRedirects() {
   document.querySelectorAll(".topic-jump").forEach((btn) => {
@@ -260,35 +339,9 @@ function attachTopicRedirects() {
   });
 }
 
-function renderLessons() {
-  lessonList.innerHTML = "";
-  lessons.forEach((lesson, i) => {
-    const li = document.createElement("li");
-    const button = document.createElement("button");
-    button.textContent = lesson.title;
-    button.addEventListener("click", () => selectLesson(i));
-    li.append(button);
-    lessonList.append(li);
-  });
-  selectLesson(0);
-}
-
-function selectLesson(i) {
-  const lesson = lessons[i];
-  const points = lesson.points.map((point) => `<li>${point}</li>`).join("");
-  lessonView.innerHTML = `
-    <h3>${lesson.title}</h3>
-    <p>${lesson.body}</p>
-    <ul class="lesson-points">${points}</ul>
-    <a class="trusted-link" href="${lesson.link}" target="_blank" rel="noopener noreferrer">Read expanded guide ↗</a>
-  `;
-  document.querySelectorAll(".lesson-list button").forEach((btn, idx) => {
-    btn.classList.toggle("active", idx === i);
-  });
-}
-
 function renderQuestion() {
   const questions = currentQuestions();
+  if (!questions.length) return;
   const q = questions[currentQuestion];
   const labels = ["A", "B", "C", "D"];
 
@@ -346,7 +399,7 @@ function nextQuestion() {
   }
 
   feedback.textContent = `Round complete, ${username}! ${activeTier.toUpperCase()} score: ${score}. Starting a new randomized round.`;
-  feedback.style.color = "#515ed3";
+  feedback.style.color = "#334ac2";
   updateLeaderboard();
   currentQuestion = 0;
   score = 0;
@@ -404,10 +457,28 @@ function updateLeaderboard() {
   });
 }
 
+function updateMascot(streak) {
+  if (!mascotFace || !mascotMood) return;
+
+  if (streak >= 21) {
+    mascotFace.textContent = "🤩";
+    mascotMood.textContent = "Legend streak! Your mascot is super hyped!";
+  } else if (streak >= 10) {
+    mascotFace.textContent = "😄";
+    mascotMood.textContent = "Amazing streak! Your mascot is very excited!";
+  } else if (streak >= 4) {
+    mascotFace.textContent = "😊";
+    mascotMood.textContent = "Nice momentum! Keep going!";
+  } else {
+    mascotFace.textContent = "🙂";
+    mascotMood.textContent = "Your buddy is cheering you on.";
+  }
+}
+
 function updateStreak() {
   const today = new Date().toISOString().slice(0, 10);
-  const last = localStorage.getItem("reproluma-last-visit");
-  let streak = Number(localStorage.getItem("reproluma-streak") || 0);
+  const last = localStorage.getItem("reprowise-last-visit");
+  let streak = Number(localStorage.getItem("reprowise-streak") || 0);
 
   if (!last) streak = 1;
   else {
@@ -416,15 +487,16 @@ function updateStreak() {
     if (diff > 1) streak = 1;
   }
 
-  localStorage.setItem("reproluma-last-visit", today);
-  localStorage.setItem("reproluma-streak", String(streak));
+  localStorage.setItem("reprowise-last-visit", today);
+  localStorage.setItem("reprowise-streak", String(streak));
   streakCount.textContent = `${streak} day${streak > 1 ? "s" : ""}`;
+  updateMascot(streak);
 }
 
 function applyUser(name) {
   username = name || "Guest";
-  if (username === "Guest") localStorage.removeItem("reproluma-user");
-  else localStorage.setItem("reproluma-user", username);
+  if (username === "Guest") localStorage.removeItem("reprowise-user");
+  else localStorage.setItem("reprowise-user", username);
   accountPill.textContent = username;
   updateLeaderboard();
 }
@@ -438,7 +510,7 @@ function decodeJwtPayload(token) {
 function handleGoogleCredentialResponse(response) {
   try {
     const payload = decodeJwtPayload(response.credential);
-    applyUser(payload.given_name || payload.name || "ReproLuma Learner");
+    applyUser(payload.given_name || payload.name || "ReproWise Learner");
     feedback.textContent = `Signed in with Google as ${username}. Competition mode enabled.`;
   } catch (_error) {
     feedback.textContent = "Google sign-in completed, but we could not read profile info.";
@@ -466,7 +538,7 @@ function setupGoogleSignIn() {
     googleSlot.textContent = "";
   } catch (_error) {
     googleSlot.textContent =
-      "Google sign-in could not initialize. Set window.BLOOM_GOOGLE_CLIENT_ID to your valid client ID.";
+      "Google sign-in could not initialize. Set window.REPROWISE_GOOGLE_CLIENT_ID to your valid client ID.";
   }
 }
 
@@ -514,13 +586,11 @@ function attachHospitalSearch() {
   render();
 }
 
-
 function attachShareLink() {
   const linkInput = document.getElementById("site-link");
   const copyBtn = document.getElementById("copy-link-btn");
 
   if (!linkInput || !copyBtn) return;
-
   linkInput.value = window.location.href;
 
   copyBtn.addEventListener("click", async () => {
@@ -547,7 +617,7 @@ function attachFriendsSystem() {
     const name = input.value.trim();
     if (!name || friends.some((f) => f.toLowerCase() === name.toLowerCase())) return;
     friends.push(name);
-    localStorage.setItem("reproluma-friends", JSON.stringify(friends));
+    localStorage.setItem("reprowise-friends", JSON.stringify(friends));
     input.value = "";
     updateLeaderboard();
   });
@@ -560,6 +630,7 @@ window.addEventListener("load", () => {
 });
 
 attachMenuNavigation();
+setActiveMenu("home");
 renderLessons();
 attachTopicRedirects();
 attachTierPicker();
