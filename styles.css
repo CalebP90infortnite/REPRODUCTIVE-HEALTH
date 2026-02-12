@@ -168,6 +168,29 @@ input { padding: .75rem .9rem; border-radius: .8rem; border: 1px solid #dfe2f3; 
 .grid-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .google-slot { min-height: 40px; display: flex; align-items: center; color: #4f5680; }
 
+
+.share-link-wrap {
+  margin-top: 1rem;
+}
+
+.share-link-wrap label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.share-link-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+#site-link {
+  min-width: 20rem;
+  flex: 1;
+}
+
 footer { text-align: center; padding: 1.6rem; color: #737997; }
 
 @keyframes sectionPop {

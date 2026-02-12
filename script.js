@@ -143,8 +143,8 @@ let activeTier = "easy";
 let currentQuestion = 0;
 let score = 0;
 let locked = false;
-let username = localStorage.getItem("bloom-user") || "Guest";
-let friends = JSON.parse(localStorage.getItem("bloom-friends") || "[]");
+let username = localStorage.getItem("reproluma-user") || "Guest";
+let friends = JSON.parse(localStorage.getItem("reproluma-friends") || "[]");
 let roundQuestions = [];
 
 const ROUND_SIZE = 3;
@@ -346,8 +346,8 @@ function updateLeaderboard() {
 
 function updateStreak() {
   const today = new Date().toISOString().slice(0, 10);
-  const last = localStorage.getItem("bloom-last-visit");
-  let streak = Number(localStorage.getItem("bloom-streak") || 0);
+  const last = localStorage.getItem("reproluma-last-visit");
+  let streak = Number(localStorage.getItem("reproluma-streak") || 0);
 
   if (!last) streak = 1;
   else {
@@ -356,15 +356,15 @@ function updateStreak() {
     if (diff > 1) streak = 1;
   }
 
-  localStorage.setItem("bloom-last-visit", today);
-  localStorage.setItem("bloom-streak", String(streak));
+  localStorage.setItem("reproluma-last-visit", today);
+  localStorage.setItem("reproluma-streak", String(streak));
   streakCount.textContent = `${streak} day${streak > 1 ? "s" : ""}`;
 }
 
 function applyUser(name) {
   username = name || "Guest";
-  if (username === "Guest") localStorage.removeItem("bloom-user");
-  else localStorage.setItem("bloom-user", username);
+  if (username === "Guest") localStorage.removeItem("reproluma-user");
+  else localStorage.setItem("reproluma-user", username);
   accountPill.textContent = username;
   updateLeaderboard();
 }
@@ -378,7 +378,7 @@ function decodeJwtPayload(token) {
 function handleGoogleCredentialResponse(response) {
   try {
     const payload = decodeJwtPayload(response.credential);
-    applyUser(payload.given_name || payload.name || "Bloom Learner");
+    applyUser(payload.given_name || payload.name || "ReproLuma Learner");
     feedback.textContent = `Signed in with Google as ${username}. Competition mode enabled.`;
   } catch (_error) {
     feedback.textContent = "Google sign-in completed, but we could not read profile info.";
@@ -454,13 +454,40 @@ function attachHospitalSearch() {
   render();
 }
 
+
+function attachShareLink() {
+  const linkInput = document.getElementById("site-link");
+  const copyBtn = document.getElementById("copy-link-btn");
+
+  if (!linkInput || !copyBtn) return;
+
+  linkInput.value = window.location.href;
+
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(linkInput.value);
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => {
+        copyBtn.textContent = "Copy link";
+      }, 1000);
+    } catch (_error) {
+      linkInput.select();
+      document.execCommand("copy");
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => {
+        copyBtn.textContent = "Copy link";
+      }, 1000);
+    }
+  });
+}
+
 function attachFriendsSystem() {
   document.getElementById("add-friend-btn").addEventListener("click", () => {
     const input = document.getElementById("friend-input");
     const name = input.value.trim();
     if (!name || friends.some((f) => f.toLowerCase() === name.toLowerCase())) return;
     friends.push(name);
-    localStorage.setItem("bloom-friends", JSON.stringify(friends));
+    localStorage.setItem("reproluma-friends", JSON.stringify(friends));
     input.value = "";
     updateLeaderboard();
   });
@@ -477,6 +504,7 @@ renderLessons();
 attachTierPicker();
 attachSignIn();
 attachHospitalSearch();
+attachShareLink();
 attachFriendsSystem();
 setupGoogleSignIn();
 updateStreak();
